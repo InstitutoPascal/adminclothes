@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+<h1>
+{{=subtitulo}}
+</h1>
+{{=form}}
+{{if cant>0:}}
+Los clientes son:
+{{=tabla}}
+{{pass}}
+{{=form2}}
