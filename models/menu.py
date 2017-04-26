@@ -19,11 +19,18 @@ DEVELOPMENT_MENU = True
 
 if "auth" in locals():
     auth.wikimenu()
+    
+##Menu compras##
+response.menu += [
+                (T('Compras'), False, URL('default','index'), [
+                    (T('ABM proveedor'), False, URL('altas', 'alta_cliente'),[]),
+                    (T('Reporte subdiario'), False, URL('altas', 'alta_producto'),[]),
+                    (T('Listado de proveedor'), False,URL('altas', 'alta_proveedor'),[]),
+                    (T('Formulario de compra'), False, URL('altas', 'alta_vendedor'),[]),
+                    (T('Orden de compra'), False, URL('altas', 'alta_empleado'),[])])]
 
-
-if auth.is_logged_in():
-    ### Menu Altas ###
-    response.menu += [
+### Menu Altas ###
+response.menu += [
                 (T('Altas'), False, URL('default','index'), [
                     (T('clientes'), False, URL('altas', 'alta_cliente'),[]),
                     (T('producto'), False, URL('altas', 'alta_producto'),[]),
@@ -33,8 +40,8 @@ if auth.is_logged_in():
                     (T('venta'), False, URL('altas', 'alta_ventas'),[])])]
                          
     
-    ### Menu Consultas (parametros) ###
-    response.menu+=[(T('listados'),False,'#',
+### Menu Consultas (parametros) ###
+response.menu+=[(T('listados'),False,'#',
                      [(T('Cliente'),False,'#',
                        [(T('por Ciudad'),False,URL(request.application,'consultas','clientes_por_ciudad'),[]),
                         (T('por dni'),False,URL(request.application,'consultas','clientes_por_dni'),[])],),
@@ -62,9 +69,7 @@ if auth.is_logged_in():
                        )]
     
 ### Menu Registros Completos ###
-
-if auth.has_membership(role= 'Administrador'):
-    response.menu.extend([
+response.menu.extend([
                     (T('Registros completos'), False, URL('default','index'), [
                     (T('Cliente'), False, URL('consultas', 'listado_Clientes'),[]),
                     (T('productos'), False, URL('consultas', 'listado_Productos'),[]),
