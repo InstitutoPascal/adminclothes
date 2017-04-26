@@ -29,17 +29,17 @@ response.menu += [
                     (T('Formulario de compra'), False, URL('altas', 'alta_vendedor'),[]),
                     (T('Orden de compra'), False, URL('altas', 'alta_empleado'),[])])]
 
+
 ### Menu Altas ###
 response.menu += [
-                (T('Altas'), False, URL('default','index'), [
-                    (T('clientes'), False, URL('altas', 'alta_cliente'),[]),
-                    (T('producto'), False, URL('altas', 'alta_producto'),[]),
-                    (T('proveedor'), False,URL('altas', 'alta_proveedor'),[]),
-                    (T('vendedor'), False, URL('altas', 'alta_vendedor'),[]),
-                    (T('empleado'), False, URL('altas', 'alta_empleado'),[]),
-                    (T('venta'), False, URL('altas', 'alta_ventas'),[])])]
-                         
-    
+                (T('Stock'), False, URL('stock', 'index'), [
+        (T('ABM Producto'), False, URL('stock', 'reporte_stock'), []),
+        (T('reporte'), False, URL('stock', 'abm_producto'), []),
+
+        (T('Emision de remito'), False, URL('stock', 'emision_remito'), []),
+        (T('Recepcion de remito'), False, URL('stock', 'resepcion_remito'), [])])]
+
+
 ### Menu Consultas (parametros) ###
 response.menu+=[(T('listados'),False,'#',
                      [(T('Cliente'),False,'#',
