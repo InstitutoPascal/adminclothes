@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-response.logo = A(B('web', SPAN(2), 'py'), XML('&trade;&nbsp;'),
+response.logo = A(B('Adminclothes'), XML('&trade;&nbsp;'),
                   _class="navbar-brand", _href="http://www.web2py.com/",
                   _id="web2py-logo")
 response.title = request.application.replace('_', ' ').title()
@@ -30,7 +30,7 @@ response.menu += [
                     (T('Orden de compra'), False, URL('altas', 'alta_empleado'),[])])]
 
 
-### Menu Altas ###
+### Menu stock ###
 response.menu += [
                 (T('Stock'), False, URL('stock', 'index'), [
         (T('ABM Producto'), False, URL('stock', 'reporte_stock'), []),
@@ -40,47 +40,20 @@ response.menu += [
         (T('Recepcion de remito'), False, URL('stock', 'resepcion_remito'), [])])]
 
 
-### Menu Consultas (parametros) ###
-response.menu+=[(T('listados'),False,'#',
-                     [(T('Cliente'),False,'#',
-                       [(T('por Ciudad'),False,URL(request.application,'consultas','clientes_por_ciudad'),[]),
-                        (T('por dni'),False,URL(request.application,'consultas','clientes_por_dni'),[])],),
 
-                      (T('Productos'),False,'#',
-                         [(T('por codigo'),False,URL(request.application,'consultas','productos_por_codigo'),[]),
-                          (T('Precios de venta'),False,'#',
-                            [(T('superiores'),False,URL(request.application,'consultas','productos_superiores_venta'),[]),
-                             (T('inferiores'),False,URL(request.application,'consultas','productos_inferiores_venta'),[]),
-                             (T('entre inferior y superior'),False,URL(request.application,'consultas','productos_entre_venta'),[])],),
-                          (T('precios de compra'),False,'#',
-                            [(T('superiores'),False,URL(request.application,'consultas','productos_superiores_compra'),[]),
-                             (T('inferiores'),False,URL(request.application,'consultas','productos_inferiores_compra'),[]),
-                             (T('entre inferior y superior'),False,URL(request.application,'consultas','productos_entre_compra'),[])],),
-                          (T('por nombre'),False,'#',
-                             [(T('uno'),False,URL(request.application,'consultas','productos_por_uno'),[]),
-                              (T('varios'),False,URL(request.application,'consultas','productos_por_varios'),[]),
-                            ],),],),
-
-                      (T('proveedores'),False,'#',
-                       [(T('por codigo'),False,URL(request.application,'consultas','proveedor_por_codigo'),[]),
-                        (T('Por nombre'),False,URL(request.application,'consultas','proveedor_por_nombre'),[]),
-                        (T('por ciudad'),False,URL(request.application,'consultas','proveedor_por_ciudad'),[]),],),
-                     ],
-                       )]
     
-### Menu Registros Completos ###
+### Menu ventas ###
 response.menu.extend([
-                    (T('Registros completos'), False, URL('default','index'), [
-                    (T('Cliente'), False, URL('consultas', 'listado_Clientes'),[]),
-                    (T('productos'), False, URL('consultas', 'listado_Productos'),[]),
-                    (T('Proveedores'), False,URL('consultas', 'listado_Proveedor'),[]),
-                    (T('Vendedores'), False, URL('consultas', 'listado_Vendedor'),[]),
-                    (T('Ventas'), False, URL('consultas', 'listado_Ventas'),[])])])
+                    (T('Ventas'), False, URL('default','index'), [
+                    (T('Clientes'), False, URL('consultas', 'listado_Clientes'),[]),
+                    (T('Facturas'), False, URL('consultas', 'listado_Productos'),[]),
+                    (T('Reporte de ventas'), False,URL('consultas', 'listado_Proveedor'),[]),
+                    (T('Reportes de ventas por clientes'), False, URL('consultas', 'listado_Vendedor'),[]),
+                    (T('Nota de credito'), False, URL('consultas', 'listado_Ventas'),[])])])
 
 
 
 """if DEVELOPMENT_MENU:_()
-
 if "auth" in locals(): auth.wikimenu()
 if auth.has_membership(role='Gerente'):
     response.menu+=[(T('Altas'),False,'#',
@@ -95,7 +68,6 @@ response.menu+=[(T('Consultas'),False,'#',
                  (T('Proveedores'),False,URL(request.application,'consultas','listado_proveedor'),[]),
                  (T('Articulos'),False,URL(request.application,'consultas','listado_productos'),[])],
                 )]
-
 response.menu+=[(T('Listado'),False,'#',
                  [(T('Clientes'),False,'#',
                    [(T('Por Ciudad'),False,URL(request.application,'listado','clientes_por_ciudad'),[]),
