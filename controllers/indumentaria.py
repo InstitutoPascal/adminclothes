@@ -11,3 +11,5 @@ def bermudas():
     return dict(message="bermudas")
 def abrigos():
     return dict(message="abrigos")
+def detalle_venta():
+    return dict(message="detalle_venta")
