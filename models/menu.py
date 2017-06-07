@@ -54,10 +54,10 @@ response.menu.extend([
 response.menu.extend([
                     (T('Indumentaria'), False, URL('default','index'), [
                     (T('Remeras'), False, URL('indumentaria', 'remeras'),[]),
-                    (T('Camisas'), False, URL('ventas', 'abm_ventas'),[]),
+                    (T('Camisas'), False, URL('indumentaria', 'camisas'),[]),
                     (T('jeans'), False,URL('consultas', 'listado_Proveedor'),[]),
                     (T('Bermudas y shorts'), False, URL('consultas', 'listado_Vendedor'),[]),
-                    (T('Abrigos'), False, URL('consultas', 'listado_Ventas'),[])])])
+                    (T('Abrigos'), False, URL('indumentaria', 'abrigos'),[])])])
 
 
 """if DEVELOPMENT_MENU:_()
