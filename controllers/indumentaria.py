@@ -13,3 +13,5 @@ def abrigos():
     return dict(message="abrigos")
 def detalle_venta():
     return dict(message="detalle_venta")
+def datos_facturacion():
+    return dict(message="datos_facturacion")

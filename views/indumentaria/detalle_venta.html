@@ -1,6 +1,6 @@
 {{extend 'layout.html'}}
 
-<h1>CARRITO</h1>
+<center><h1>CARRITO DE COMPRAS</h1></center>
 <style>
 table {
     border-collapse: collapse;
@@ -34,6 +34,12 @@ tr:hover{background-color:#f5f5f5}
 
     </tr>
     </table>
-    
+
     <br>
-    <center><input class="btn btn-default" onclick="location.href='http://127.0.0.1:8000/adminclothes/default/index'" type="button" value="Finalizar compra" name="boton"></center>
+
+    <div class="row">
+  <div class="col-md-8"></div>
+        <div class="col-md-2"><input class="btn btn-default" onclick="location.href='http://127.0.0.1:8000/adminclothes/indumentaria/remeras'" type="button" value="Seguir Comprando" name="boton"></div>
+  <div class="col-md-2"><input class="btn btn-default" onclick="location.href='http://127.0.0.1:8000/adminclothes/indumentaria/datos_facturacion'" type="button" value="Finalizar compra" name="boton"></center></div>
+
+</div>
