@@ -15,3 +15,7 @@ def detalle_venta():
     return dict(message="detalle_venta")
 def datos_facturacion():
     return dict(message="datos_facturacion")
+def fin_compra():
+    return dict(message="fin_compra")
+def cupon_de_pago():
+    return dict(message="cupon_de_pago")
