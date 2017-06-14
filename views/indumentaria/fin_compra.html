@@ -1,0 +1,60 @@
+{{extend 'layout.html'}}
+<center><h2>Finalizar Compra</h2></center>
+<h3>Su pedido</h3>
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover{background-color:#f5f5f5}
+</style>
+</head>
+<body>
+
+
+<table>
+  <tr>
+    <th>Producto</th>
+    <th>Precio</th>
+    <th>Cantidad</th>
+    <th>Sub-total</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    <td>Remera blanca adidas</td>
+       <td>$200</td>
+       <td>1</td>
+       <td>$200</td>
+
+    </tr>
+    <tr>
+    <td>Remera gris nike</td>
+       <td>$250</td>
+       <td>1</td>
+       <td>$450</td>
+
+    </tr>
+    <tr>
+    <td>Remera rallada levi's</td>
+       <td>$270</td>
+       <td>1</td>
+       <td>$720</td>
+       <td><b>$720</b></td>
+
+    </tr>
+    </table>
+    <br>
+ <div class="row">
+  <div class="col-md-6"></div>
+        <div class="col-md-3"><input class="btn btn-default" onclick="location.href='http://127.0.0.1:8000/adminclothes/indumentaria/cupon_de_pago'" type="button" value="Vista previa del cupon de pago" name="boton"></div>
+  <div class="col-md-2"><input class="btn btn-default" onclick="location.href='http://127.0.0.1:8000/adminclothes/indumentaria/datos_facturacion'" type="button" value="Cancelar compra" name="boton"></center></div>
+
+</div>
