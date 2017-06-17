@@ -1,0 +1,74 @@
+{{extend 'layout.html'}}
+<h1>DETALLE DE PRODUCTO</h1>
+<div class="form-group">
+
+</div>
+<form class="form-horizontal" action="{{=URL(c="producto", f="detalle_producto")}}" enctype="multipart/form-data" method="POST">
+    <div class="form-group">
+        <label  class="col-sm-1 control-label">PRODUCTO</label>
+           <div class="col-sm-3">
+                <select class="form-control" id="campo_tipo" name="id_producto">
+
+                  <option value=></option>
+
+                </select>
+           </div>
+        <label class="col-sm-1 control-label">CANTIDAD</label>
+           <div class="col-sm-1">
+               <input type="number" name="cantidad" class="form-control" id="cant" placeholder="Cantidad">
+            </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-3">
+             <input type="submit" name="agregar_item" class="btn btn-default" value="AGREGAR ITEM">
+        </div>
+    </div>
+</form>
+<form class="form-horizontal" action="{{=URL(c="producto", f="confirmar")}}" enctype="multipart/form-data" method="POST">
+    <div class="form-group">
+        <div class="col-md-10">
+          <table class="table table-hover">
+          <caption>ITEMS DE COMPRA</caption>
+          <thead>
+            <tr>
+                <th>#</th>
+                <th class=>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>SubTotal</th>
+                <th>IVA</th>
+                <th>SubTotal + IVA</th>
+                <th>Opciones</th>
+            </tr>
+          </thead>
+        <tbody>
+
+            <tr>
+                <th scope="row">01</th>
+                <td >jeans</td>
+                <td align="center">2</td>
+                <td align="center">500</td>
+                <td align="center">1000</td>
+                
+            {{pass}}
+        </tbody>
+        </table>
+        </div>
+        </div>
+    <div class="form-group">
+        <div class="col-md-3">
+        <table class="table table-bordered">
+        <tbody>
+            <tr> <th scope="row">Total $:</th>
+                 <td></td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-1">
+           <input type="submit" class="btn btn-default" value="Finalizar compra">
+        </div>
+     </div>
+</form>
