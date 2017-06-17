@@ -34,3 +34,19 @@ def editar_producto():
     else:
 		response.flash = 'Por favor rellene el formulario'
     return dict(f=form)
+def editar_proveedor():
+    # obtengo el primer argumento (ver URL)
+    id_proveedor = request.args[0]
+    # busco el registro en la bbdd
+    producto =  db(db.proveedor.id == id_proveedor).select().first()
+    # armo el formulario para modificar este registro:
+    form=SQLFORM(db.proveedor , proveedor)
+    if form.accepts(request.vars, session):
+        session.flash = 'Formulario correctamente cargado'
+        # redirijo al usuario al listado
+        redirect(URL(c="consultas", f="listado_proveedor"))
+    elif form.errors:
+		response.flash = 'Su formulario contiene errores, porfavor modifiquelo'
+    else:
+		response.flash = 'Por favor rellene el formulario'
+    return dict(f=form)

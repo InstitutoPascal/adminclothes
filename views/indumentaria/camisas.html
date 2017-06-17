@@ -1,10 +1,11 @@
 {{extend 'layout.html'}}
 <div class="row">
-    <div class="col-md-2">Genero<select class="form-control">
-  <option>Hombre</option>
-  <option>Mujer</option>
+  <div class="col-md-2">Genero <form name="link">
+  <select class="form-control" name="menu" onchange="location.href=this.options[this.selectedIndex].value" name="elige" size="1">
+  <option value="https://www.templatemonster.com/es/demo/62486.html">Hombre</option>
+  <option value="https://www.templatemonster.com/es/demo/58817.html">Mujer</option>
   <option>Niños</option>
-    </select></div>
+  </select></form></div>
 
   <div class="col-md-2">Talle <select class="form-control">
   <option>S</option>

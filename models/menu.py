@@ -23,21 +23,17 @@ if "auth" in locals():
 ##Menu compras##
 response.menu += [
                 (T('Compras'), False, URL('default','index'), [
-                    (T('ABM proveedor'), False, URL('altas', 'alta_cliente'),[]),
-                    (T('Reporte subdiario'), False, URL('altas', 'alta_producto'),[]),
-                    (T('Listado de proveedor'), False,URL('altas', 'alta_proveedor'),[]),
-                    (T('Formulario de compra'), False, URL('altas', 'alta_vendedor'),[]),
+                    (T('ABM proveedor'), False, URL('compras', 'abm_proveedor'),[]),
+                    (T('Listado de proveedor'), False,URL('consultas', 'listado_proveedor'),[]),
+                    (T('Facturas'), False, URL('compras', 'abm_producto'),[]),
                     (T('Orden de compra'), False, URL('altas', 'alta_empleado'),[])])]
 
 
 ### Menu stock ###
 response.menu += [
                 (T('Stock'), False, URL('stock', 'index'), [
-        (T('ABM Producto'), False, URL('stock', 'reporte_stock'), []),
-        (T('reporte'), False, URL('stock', 'abm_producto'), []),
-
-        (T('Emision de remito'), False, URL('stock', 'emision_remito'), []),
-        (T('Recepcion de remito'), False, URL('stock', 'resepcion_remito'), [])])]
+        (T('ABM Producto'), False, URL('stock', 'abm_producto'), []),
+        (T('Reporte'), False, URL('stock', 'listado_producto'), [])])]
 
 
 
