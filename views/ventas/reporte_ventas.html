@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+<h1>Reporte de ventas</h1>
+<div class="row">
+  <div class="col-md-4"><h3>
+
+     Fecha Inicial </h3><input type="date" class="form-control" placeholder="Text input"></div>
+
+</div>
+<div class="row">
+  <div class="col-md-4"><h3>
+
+     Fecha Final </h3><input type="date" class="form-control" placeholder="Text input"></div>
+
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-1"><input class="btn btn-default" onclick="location.href='http://127.0.0.1:8000/adminclothes/ventas/lista_ventas'" type="button" value="Generar reporte" name="boton"></div>
