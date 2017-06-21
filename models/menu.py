@@ -43,7 +43,7 @@ response.menu.extend([
                     (T('Ventas'), False, URL('default','index'), [
                     (T('Clientes'), False, URL('ventas', 'abm_clientes'),[]),
                     (T('Facturas'), False, URL('ventas', 'abm_ventas'),[]),
-                    (T('Reporte de ventas'), False,URL('consultas', 'listado_Proveedor'),[]),
+                    (T('Reporte de ventas'), False,URL('ventas', 'reporte_ventas'),[]),
                     (T('Reportes de ventas por clientes'), False, URL('consultas', 'listado_Vendedor'),[]),
                     (T('Nota de credito'), False, URL('consultas', 'listado_Ventas'),[])])])
 ### Menu indumentaria ###

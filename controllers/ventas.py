@@ -25,3 +25,6 @@ def lista_ventas_por_cliente():
     desde = request.vars["fecha_desde"]
     hasta = request.vars["fecha_hasta"]
     return dict(titulo="Listando Desde: %s Hasta: %s" % (desde, hasta))
+def alta_cliente():
+
+    return dict (message="alta_cliente")
