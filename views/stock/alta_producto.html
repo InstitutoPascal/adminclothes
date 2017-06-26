@@ -1,0 +1,67 @@
+<html>
+<style>
+input[type=text], select {
+    width: 15%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 10%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+<body>
+
+<h3>Alta producto</h3>
+
+<div>
+  <form action="/action_page.php">
+    <label for="producto">Producto</label>
+    <input type="text" id="producto" name="producto" placeholder="producto">
+
+    <label for="lname">Cantidad</label>
+    <input type="text" id="cantidad" name="cantidad" placeholder="cantidad">
+    <label for="lname">Precio</label>
+    <input type="text" id="precio" name="precio" placeholder="precio">
+    <label for="total">Total</label>
+    <input type="text" id="total" name="total" placeholder="total">
+
+    <label for="Material">Material</label>
+    <select id="Material" name="Material">
+      <option value="pontevedra">Lana</option>
+      <option value="catan">Cuero</option>
+      <option value="merlo">Pana</option>
+      <option value="merlo">Algodon</option>
+    </select>
+       <label for="codigo de barra">Codigo de barra</label>
+    <input type="text" id="codigo de barra" name="codigo de barra" placeholder="codigo de barra">
+       <label for="descripcion">Descripcion</label>
+    <input type="text" id="descripcio" name="descripcio" placeholder="descripcion">
+
+    <input type="submit" value="Enviar">
+  </form>
+</div>
+
+</body>
+</html>

@@ -24,16 +24,16 @@ if "auth" in locals():
 response.menu += [
                 (T('Compras'), False, URL('default','index'), [
                     (T('ABM proveedor'), False, URL('compras', 'abm_proveedor'),[]),
-                    (T('Listado de proveedor'), False,URL('consultas', 'listado_proveedor'),[]),
-                    (T('Facturas'), False, URL('compras', 'abm_producto'),[]),
-                    (T('Orden de compra'), False, URL('altas', 'alta_empleado'),[])])]
+                    (T('detalle de compra '), False,URL('compras', 'detalle_producto'),[]),
+                    (T('Facturas'), False, URL('compras', 'abm_producto'),[])])]
+                    
 
 
 ### Menu stock ###
 response.menu += [
                 (T('Stock'), False, URL('stock', 'index'), [
         (T('ABM Producto'), False, URL('stock', 'abm_producto'), []),
-        (T('Reporte'), False, URL('stock', 'listado_producto'), [])])]
+        (T('Inventario'), False, URL('stock', 'inventario_stock'), [])])]
 
 
 

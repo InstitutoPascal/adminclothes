@@ -1,0 +1,69 @@
+<html>
+<style>
+input[type=text], select {
+    width: 15%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 10%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+<body>
+
+<h3>Alta proveedor</h3>
+
+<div>
+  <form action="/action_page.php">
+    <label for="id">id</label>
+    <input type="text" id="id" name="id" placeholder="id">
+
+    <label for="lname">Cuit</label>
+    <input type="text" id="Cuit" name="Cuit" placeholder="Cuit">
+    <label for="lname">Razon social</label>
+    <input type="text" id="Razon social" name="Razon social" placeholder="Razon social">
+    <label for="direccion">Direccion</label>
+    <input type="text" id="direccion" name="direccion" placeholder="direccion">
+
+    <label for="localidad">Localidad</label>
+    <select id="localidad" name="localidad">
+      <option value="pontevedra">Pontevedra</option>
+      <option value="catan">G.catan</option>
+      <option value="merlo">Merlo</option>
+    </select>
+       <label for="telefono">Telefono</label>
+    <input type="text" id="telefono" name="telefono" placeholder="telefono">
+       <label for="celular">Celular</label>
+    <input type="text" id="celular" name="celular" placeholder="celular">
+       <label for="email">Email</label>
+    <input type="text" id="email" name="email" placeholder="email">
+        <label for="Web">Web</label>
+    <input type="text" id="Web" name="Web" placeholder="Web">
+    <input type="submit" value="Enviar">
+  </form>
+</div>
+
+</body>
+</html>
