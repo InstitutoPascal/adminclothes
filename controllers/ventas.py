@@ -28,3 +28,7 @@ def lista_ventas_por_cliente():
 def alta_cliente():
 
     return dict (message="alta_cliente")
+def ingreso_pagos():
+    return dict(message="ingreso_pagos")
+def listado_pagos():
+    return dict(message="listado_pagos")

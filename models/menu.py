@@ -42,10 +42,10 @@ response.menu += [
 response.menu.extend([
                     (T('Ventas'), False, URL('default','index'), [
                     (T('Clientes'), False, URL('ventas', 'abm_clientes'),[]),
-                    (T('Facturas'), False, URL('ventas', 'abm_ventas'),[]),
+                    (T('Ingreso de pagos'), False, URL('ventas', 'ingreso_pagos'),[]),
                     (T('Reporte de ventas'), False,URL('ventas', 'reporte_ventas'),[]),
-                    (T('Reportes de ventas por clientes'), False, URL('consultas', 'listado_Vendedor'),[]),
-                    (T('Nota de credito'), False, URL('consultas', 'listado_Ventas'),[])])])
+                    (T('Reportes de ventas por clientes'), False, URL('ventas', 'reporte_por_cliente'),[]),
+                    (T('Reporte de pagos'), False, URL('ventas', 'listado_pagos'),[])])])
 ### Menu indumentaria ###
 response.menu.extend([
                     (T('Indumentaria'), False, URL('default','index'), [
