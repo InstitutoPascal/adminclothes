@@ -24,7 +24,6 @@ if "auth" in locals():
 response.menu += [
                 (T('Compras'), False, URL('default','index'), [
                     (T('ABM proveedor'), False, URL('compras', 'abm_proveedor'),[]),
-                    (T('detalle de compra '), False,URL('compras', 'detalle_producto'),[]),
                     (T('Facturas'), False, URL('compras', 'abm_producto'),[])])]
                     
 
