@@ -173,16 +173,16 @@ db.define_table('producto',
                 db.Field('codigo_barra','integer'),
                 db.Field('precio_compra','integer'),
                 db.Field('precio_venta','integer'),
-                db.Field('stock','integer'),
-                db.Field('proveedor',db.proveedor))
+                db.Field('proveedor','string'),
+                db.Field('imagen', 'upload'))
 
-db.producto.proveedor.requires=IS_IN_DB(db,db.proveedor.id,'%(nombre_empresa)s',zero=T('Seleccione proveedor'))
+db.producto.proveedor.requires=IS_NOT_EMPTY(error_message='Campo obligatorio')
 db.producto.articulo_a_comprar.requires=IS_NOT_IN_DB(db, db.producto.articulo_a_comprar, error_message = 'El nombre del producto ingresado  ya se encuentra registrado'), IS_NOT_EMPTY(error_message='Campo obligatorio')
 db.producto.codigo_barra.requires=IS_NOT_EMPTY(error_message='Campo obligatorio')
 db.producto.descripcion.requires=IS_NOT_EMPTY(error_message='Campo obligatorio')
 db.producto.precio_compra.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(5, error_message='Solo hasta 5 caracteres')
 db.producto.precio_venta.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(5, error_message='Solo hasta 5 caracteres')
-db.producto.stock.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(4, error_message='Solo hasta 4 caracteres')
+#db.producto.stock.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(4, error_message='Solo hasta 4 caracteres')
 #----------------------------------------------------------------------------------------------------------------
 
 ##Tabla Vendedor##
