@@ -1,0 +1,8 @@
+{{extend 'layout.html'}}
+<h1>Listado de productos</h1>
+<ul>
+    {{for producto in producto:}}
+    <!--  <a href="mostrar">producto.nombre</a>         -->
+    <li>{{=A(producto.articulo_a_comprar, _href=URL(f="ver",args=[producto.id]))}}</li>
+    {{pass}}
+</ul>
