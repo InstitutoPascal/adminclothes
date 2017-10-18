@@ -5,6 +5,9 @@ def index():
     regs = db(db.producto.id>0).select()
     return dict(producto=regs)
 
+def remeras():
+    return dict(message="remeras")
+
 def ver():
     # obtengo el id de prodcuto desde la URL
     prod_id = request.args[0]
@@ -29,8 +32,7 @@ def mostrar():
     response.headers['Content-Type'] = formato
     # devolver al navegador el contenido de la imagen
     return stream
-def remeras():
-    return dict(message="remeras")
+
 def camisas():
     return dict(message="camisas")
 def jeans():
