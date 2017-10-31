@@ -21,24 +21,31 @@ if "auth" in locals():
     auth.wikimenu()
 
 ##Menu compras##
-response.menu += [
-                (T('Compras'), False, URL('default','index'), [
-                    (T('ABM proveedor'), False, URL('compras', 'abm_proveedor'),[]),
-                    (T('Facturas'), False, URL('compras', 'abm_producto'),[])])]
+if auth.has_membership('Admin'):
+    response.menu += [
+                    (T('Compras'), False, URL('default','index'), [
+                        (T('ABM proveedor'), False, URL('compras', 'abm_proveedor'),[]),
+                        (T('Facturas'), False, URL('compras', 'abm_producto'),[])])]
                     
 
 
 ### Menu stock ###
-response.menu += [
+if auth.has_membership('Admin'):
+    response.menu += [
                 (T('Stock'), False, URL('stock', 'index'), [
         (T('ABM Producto'), False, URL('stock', 'abm_producto'), []),
+        (T('ABM Categoria'), False, URL('stock', 'abm_categoria'), []),
+        (T('ABM Color'), False, URL('stock', 'abm_color'), []),
+        (T('ABM Talle'), False, URL('stock', 'abm_talle'), []),
+        (T('ABM Marca'), False, URL('stock', 'abm_marca'), []),        
         (T('Inventario'), False, URL('stock', 'inventario_stock'), [])])]
 
 
 
     
 ### Menu ventas ###
-response.menu.extend([
+if auth.has_membership('Admin'):
+    response.menu.extend([
                     (T('Ventas'), False, URL('default','index'), [
                     (T('Clientes'), False, URL('ventas', 'abm_clientes'),[]),
                     (T('Ingreso de pagos'), False, URL('ventas', 'ingreso_pagos'),[]),
@@ -46,13 +53,12 @@ response.menu.extend([
                     (T('Reportes de ventas por clientes'), False, URL('ventas', 'reporte_por_cliente'),[]),
                     (T('Reporte de pagos'), False, URL('ventas', 'listado_pagos'),[])])])
 ### Menu indumentaria ###
+categoria= db(db.categoria).select()
+tupla = []
+for c in categoria:
+    tupla.append((T(str(c.nombre).lower().capitalize()), False, URL('indumentaria', 'categoria',args=c.id),[]))
 response.menu.extend([
-                    (T('Indumentaria'), False, URL('default','index'), [
-                    (T('Remeras'), False, URL('indumentaria', 'remeras'),[]),
-                    (T('Camisas'), False, URL('indumentaria', 'camisas'),[]),
-                    (T('jeans'), False,URL('indumentaria', 'jeans'),[]),
-                    (T('Bermudas y shorts'), False, URL('indumentaria', 'bermudas'),[]),
-                    (T('Abrigos'), False, URL('indumentaria', 'abrigos'),[])])])
+                    (T('Indumentaria'), False, URL('default','index'), tupla)])
 
 
 
