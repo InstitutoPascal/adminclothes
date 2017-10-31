@@ -154,15 +154,15 @@ db.define_table('proveedor',
                  db.Field('nombre_empresa','string'),
                  db.Field('localidad','string'),
                  db.Field('calle','string'),
-                 db.Field('numero_calle','integer'),
-                 db.Field('telefono','integer'),
+                 db.Field('numero_calle','string'),
+                 db.Field('telefono','string'),
                  db.Field('email','string'))
 db.proveedor.localidad.requires=IS_NOT_EMPTY(error_message='Campo obligatorio')
 db.proveedor.telefono.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
 db.proveedor.email.requires=IS_EMAIL(error_message='¡El mail no es válido!'), IS_LENGTH(30, error_message='Solo hasta 30 caracteres')
 db.proveedor.nombre_empresa.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
 db.proveedor.calle.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
-db.proveedor.numero_calle.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(4, error_message='Solo hasta 4 caracteres')
+db.proveedor.numero_calle.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(6, error_message='Solo hasta 6 caracteres')
 
 # --------------------------------------------------------------------------------------
 
