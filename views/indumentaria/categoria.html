@@ -1,0 +1,45 @@
+{{extend 'layout.html'}}
+<form method="POST">
+   
+<div class="row">
+    <div class="col-md-2">Genero<select name="genero" onchange="this.form.submit();" class="form-control">
+      {{for g in genero:}}
+         <option value="{{=g["id"]}}" {{ if genero_sel == g["id"]: }}selected{{pass}} >{{=g["nombre"]}}</option>
+        {{pass}}
+    </select></div>
+
+  <div class="col-md-2">Talle <select name="talle" class="form-control" onchange="this.form.submit();"> 
+  {{for t in talle :}}
+       <option value="{{=t.id}}" {{ if talle_sel == t.id: }} selected{{pass}} >{{=t.nombre_talle}}</option>
+      {{pass}}
+    </select></div>
+  
+  <div class="col-md-2">Marca <select name="marca" class="form-control" onchange="this.form.submit();">
+  {{for m in marca :}}
+       <option value="{{=m.id}}" {{ if marca_sel == m.id: }} selected{{pass}} >{{=m.nombre_marca}}</option>
+      {{pass}}
+</select> </div>
+  <div class="col-md-2">Color <select name="color" class="form-control" onchange="this.form.submit();">
+  {{for c in color :}}
+       <option value="{{=c.id}}" {{ if color_sel == c.id: }} selected{{pass}} >{{=c.nombre_color}}</option>
+      {{pass}}
+</select></div>
+    <div class="col-md-2"></div><img src="http://127.0.0.1:8000/adminclothes/static/images/carrocompra.png"WIDTH=30 HEIGHT=30 alt="MENS">
+
+</div>
+</form>
+<hr>
+
+<div class="row">
+    {{ for p in productos:}}
+      <div class=" col-sm-3"> <img src="{{=URL(c='default',f='download',args=p.imagen)}}"  WIDTH=220 HEIGHT=240 alt="MENS" class="img-thumbnail">
+
+         <P ALIGN=center> Remera gris Adidas<br> <del>$250</del> $200 art.:3029 (en stock)</P>
+
+
+          <center><input class="btn btn-default" onclick="location.href='http://127.0.0.1:8000/adminclothes/indumentaria/detalle_venta'" type="button" value="Agregar al carrito" name="boton"></center>
+
+        
+</div>
+    {{pass}}
+</div>
