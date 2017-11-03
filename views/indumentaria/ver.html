@@ -5,16 +5,16 @@
         <div class="col-md-7">
           <h2 class="featurette-heading">{{=producto.articulo_a_comprar}}</h2>
               <p class="lead">{{=producto.descripcion}}.<span class="text-muted">{{=producto.codigo_barra}}</span></p>
-            <h1><strong>$ {{=producto.precio_venta}}</strong></h1>
+            <h1><strong>$ {{=producto.precio_compra}}</strong></h1>
             <br>
             </h1>
                 <p>
-                  <a type="cargar" class="btn btn-danger btn-lg" href="{{=URL(c="ventas",f="VentasOnlineCarga")}}">Comprar</a>
-                  <a type="button" class="btn btn-primary btn-lg" href="{{=URL(c="ventas",f="VentasOnlinecatalogo")}}">Volver</a>
+                  <a type="cargar" class="btn btn-danger btn-lg" href="{{=URL(c="indumentaria",f="detalle_venta")}}">Comprar</a>
+                  <a type="button" class="btn btn-primary btn-lg" href="{{=URL(c="indumentaria",f="remeras")}}">Volver</a>
                 </p>
         </div>
         <div class="col-md-5">
-          {{=IMG(_src=URL(c="producto", f="mostrar", args=[producto.id]))}}
+          {{=IMG(_src=URL(c="indumentaria", f="mostrar", args=[producto.id]))}}
            <!--<img class="featurette-image img-responsive center-block" data-src="/home/lucas/web2py/applications/eld_cosmetic/static/images/013.jpg"  _width="100%", _height="100%" -->
         </div>
       </div>

@@ -245,3 +245,5 @@ db.ventas.articulo_a_comprar.requires=IS_IN_DB(db,db.producto.id,'%(articulo_a_c
 db.ventas.fecha_venta.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_DATE('%d/%m/%Y')
 db.ventas.cantidad.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(4, error_message='Solo hasta 4 caracteres')
 db.ventas.total.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(5, error_message='Solo hasta 5 caracteres')
+
+#-----------------------------------------------------------------------------------------------------------------------------------
