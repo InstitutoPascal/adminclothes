@@ -1,6 +1,18 @@
 # -*- coding: utf-8 -*-
 # intente algo como
 def index(): return dict(message="hello from compras.py")
+def abm_categoria():
+    grid = SQLFORM.grid(db.categoria)
+    return locals()
+def abm_marca():
+    grid = SQLFORM.grid(db.marca)
+    return locals()
+def abm_color():
+    grid = SQLFORM.grid(db.color)
+    return locals()
+def abm_talle():
+    grid = SQLFORM.grid(db.talle)
+    return locals()
 def abm_producto():
     grid = SQLFORM.grid(db.producto)
     return {"grilla": grid}

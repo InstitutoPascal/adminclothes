@@ -28,10 +28,11 @@ if not request.env.web2py_runtime_gae:
     # ---------------------------------------------------------------------
     # if NOT running on Google App Engine use SQLite or other DB
     # ---------------------------------------------------------------------
-    db = DAL(myconf.get('db.uri'),
+    """db = DAL(myconf.get('db.uri'),
              pool_size=myconf.get('db.pool_size'),
              migrate_enabled=myconf.get('db.migrate'),
-             check_reserved=['all'])
+             check_reserved=['all'])"""
+    db = DAL('sqlite://storage.db')
 else:
     # ---------------------------------------------------------------------
     # connect to Google BigTable (optional 'google:datastore://namespace')
@@ -90,6 +91,8 @@ plugins = PluginManager()
 # -------------------------------------------------------------------------
 # create all tables needed by auth if not custom tables
 # -------------------------------------------------------------------------
+
+
 auth.define_tables(username=False, signature=False)
 
 # -------------------------------------------------------------------------
@@ -154,33 +157,50 @@ db.define_table('proveedor',
                  db.Field('nombre_empresa','string'),
                  db.Field('localidad','string'),
                  db.Field('calle','string'),
-                 db.Field('numero_calle','string'),
-                 db.Field('telefono','string'),
+                 db.Field('numero_calle','integer'),
+                 db.Field('telefono','integer'),
                  db.Field('email','string'))
 db.proveedor.localidad.requires=IS_NOT_EMPTY(error_message='Campo obligatorio')
 db.proveedor.telefono.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
 db.proveedor.email.requires=IS_EMAIL(error_message='¡El mail no es válido!'), IS_LENGTH(30, error_message='Solo hasta 30 caracteres')
 db.proveedor.nombre_empresa.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
 db.proveedor.calle.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(15, error_message='Solo hasta 15 caracteres')
-db.proveedor.numero_calle.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(6, error_message='Solo hasta 6 caracteres')
+db.proveedor.numero_calle.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(4, error_message='Solo hasta 4 caracteres')
 
 # --------------------------------------------------------------------------------------
-
+db.define_table('color',
+                db.Field('nombre_color','string',label='Nombre')
+               )
+db.define_table('talle',
+                db.Field('nombre_talle','string',label='Nombre')
+               )
+db.define_table('marca',
+                db.Field('nombre_marca','string',label='Nombre'),
+                db.Field('logo','upload')
+               )
+db.define_table('categoria',
+                db.Field('nombre','string')
+                )
 ##Tabla Producto##
 db.define_table('producto',
-                db.Field('articulo_a_comprar','string'),
+                db.Field('nombre','string'),
                 db.Field('descripcion','string'),
-                db.Field('codigo_barra','integer'),
-                db.Field('precio_compra','integer'),
+                db.Field('genero','integer',requires=IS_IN_SET({"1":"Masculino","2":"Femenino"},zero="Seleccionar...",error_message='Seleccione el genero')),
+                db.Field('impuesto','integer',requires= IS_IN_SET({"1":"10.5%","2":"21%","3":"27%"},zero='Seleccionar...',error_message='Seleccione el impuesto')),
+                db.Field('color',db.color,requires= IS_IN_DB(db, 'color.id', db.color.nombre_color,zero='Seleccionar...',error_message='Seleccione el color')),
+                db.Field('marca',db.marca,requires= IS_IN_DB(db, 'marca.id', db.marca.nombre_marca,zero='Seleccionar...',error_message='Seleccione la marca')),
+                db.Field('talle',db.talle,requires= IS_IN_DB(db, 'talle.id', db.talle.nombre_talle,zero='Seleccionar...',error_message='Seleccione el talle')),
+                #db.Field('precio_compra','integer'),
                 db.Field('precio_venta','integer'),
-                db.Field('proveedor','string'),
+                db.Field('categoria',db.categoria,requires= IS_IN_DB(db, 'categoria.id', db.categoria.nombre,zero='Seleccionar...',error_message='Seleccione la categoria')),
+                #db.Field('proveedor','string'),
                 db.Field('imagen', 'upload'))
 
-db.producto.proveedor.requires=IS_NOT_EMPTY(error_message='Campo obligatorio')
-db.producto.articulo_a_comprar.requires=IS_NOT_IN_DB(db, db.producto.articulo_a_comprar, error_message = 'El nombre del producto ingresado  ya se encuentra registrado'), IS_NOT_EMPTY(error_message='Campo obligatorio')
-db.producto.codigo_barra.requires=IS_NOT_EMPTY(error_message='Campo obligatorio')
+
+
+
 db.producto.descripcion.requires=IS_NOT_EMPTY(error_message='Campo obligatorio')
-db.producto.precio_compra.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(5, error_message='Solo hasta 5 caracteres')
+#db.producto.precio_compra.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(5, error_message='Solo hasta 5 caracteres')
 db.producto.precio_venta.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(5, error_message='Solo hasta 5 caracteres')
 #db.producto.stock.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(4, error_message='Solo hasta 4 caracteres')
 #----------------------------------------------------------------------------------------------------------------
