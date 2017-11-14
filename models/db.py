@@ -247,3 +247,12 @@ db.ventas.cantidad.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_L
 db.ventas.total.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(5, error_message='Solo hasta 5 caracteres')
 
 #-----------------------------------------------------------------------------------------------------------------------------------
+db.define_table('localidad',
+                db.field('id','integer'),
+                db.field('nombre','string'),
+                db.field('partido','string'),
+                db.field('costo_de_envio','integer'))
+db.localidad.costo_de_envio.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(5, error_message='Solo hasta 5 caracteres')
+db.localidad.id.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(5, error_message='Solo hasta 5 caracteres')
+db.localidad.nombre.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(10, error_message='Solo hasta 10 caracteres')
+db.localidad.partido.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(20, error_message='Solo hasta 30 caracteres')
