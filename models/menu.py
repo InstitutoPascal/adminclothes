@@ -60,35 +60,8 @@ for c in categoria:
 response.menu.extend([
                     (T('Indumentaria'), False, URL('default','index'), tupla)])
 
-
-
-"""if DEVELOPMENT_MENU:_()
-if "auth" in locals(): auth.wikimenu()
-if auth.has_membership(role='Gerente'):
-    response.menu+=[(T('Altas'),False,'#',
-               [(T('clientes'),False,URL(request.application,'altas','alta_clientes'),[]),
-                 (T('empleados'),False,URL(request.application,'altas','alta_empleados'),[]),
-                 (T('ventas'),False,URL(request.application,'altas','alta_vendedor'),[]),
-                 (T('proveedores'),False,URL(request.application,'altas','alta_proveedor'),[]),
-                 (T('productos'),False,URL(request.application,'altas','alta_producto'),[])],
-                 )]
-response.menu+=[(T('Consultas'),False,'#',
-                 [(T('Clientes'),False,URL(request.application,'consultas','listado_clientes'),[]),
-                 (T('Proveedores'),False,URL(request.application,'consultas','listado_proveedor'),[]),
-                 (T('Articulos'),False,URL(request.application,'consultas','listado_productos'),[])],
-                )]
-response.menu+=[(T('Listado'),False,'#',
-                 [(T('Clientes'),False,'#',
-                   [(T('Por Ciudad'),False,URL(request.application,'listado','clientes_por_ciudad'),[]),
-                    (T('Por DNI'),False,URL(request.application,'listado','clientes_por_dni'),[])],),
-                  (T('Articulos'),False,'#',
-                   [(T('Por Codigo'),False,URL(request.application,'listado','productos_por_codigo'),[]),
-                    (T('Por Nombre'),False,URL(request.application,'listado','productos_por_codigo'),
-                        [(T('UNO'),False,URL(request.application,'listado','productos_por_1_nombre'),[]),
-                         (T('VARIOS'),False,URL(request.application,'listado','productos_por_varios_nombres'),[])])],),
-                  (T('Proveedores'),False,'#',
-                   [(T('Por Codigo'),False,URL(request.application,'listado','proveedor_por_codigo'),[]),
-                    (T('Por Razon Social'),False,URL(request.application,'listado','proveedor_por_razon_social'),[]),
-                    (T('Por Ciudad'),False,URL(request.application,'listado','proveedor_por_ciudad'),[]),],),
-                 ],
-                )]"""
+##Menu envios##
+if auth.has_membership('Admin'):
+    response.menu += [
+                   (T('envios'), False, URL('default','index'), [
+                   (T('ABM partido'), False, URL('envios', 'abm_partido'),[])])]
