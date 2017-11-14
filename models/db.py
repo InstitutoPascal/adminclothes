@@ -247,3 +247,11 @@ db.ventas.cantidad.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_L
 db.ventas.total.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(5, error_message='Solo hasta 5 caracteres')
 
 #-----------------------------------------------------------------------------------------------------------------------------------
+##Tabla partido##
+db.define_table('partido',
+                 db.Field('id','integer'),
+                 db.Field('nombre','string'),
+                 db.Field('provincia','string'))
+
+db.partido.nombre.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(20, error_message='Solo hasta 20 caracteres')
+db.partido.provincia.requires=IS_NOT_EMPTY(error_message='Campo obligatorio'),IS_LENGTH(20, error_message='Solo hasta 20 caracteres')
